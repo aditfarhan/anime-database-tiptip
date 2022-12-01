@@ -1,3 +1,5 @@
+import Image from 'next/image';
+
 import useWindowDimensions from 'utils/hooks/useWindowDimension';
 import trimText from 'utils/functions/trimText';
 
@@ -148,7 +150,8 @@ const Banner = (props) => {
         customStyle={{
           display: 'flex',
           zIndex: '99',
-          gap: '0 20px'
+          gap: '0 20px',
+          width: '100%'
         }}
       >
         <BoxComponent
@@ -251,12 +254,13 @@ const Banner = (props) => {
             justifyContent: 'end'
           }}
         >
-          <img
+          <Image
             alt="selected-anime-image"
             src={highestRatingAnime?.images?.jpg?.image_url}
-            height="100%"
+            width={200}
+            height={275}
             style={{
-              BoxComponentShadow: '0px 0px 30px rgba(0, 0, 0, 0.15)',
+              boxShadow: '0px 0px 30px rgba(0, 0, 0, 0.15)',
               borderRadius: '12px'
             }}
           />
