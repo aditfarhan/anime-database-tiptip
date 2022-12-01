@@ -222,17 +222,27 @@ const DetailAnimePage = () => {
                 </Text>
               </BoxComponent>
               <BoxComponent
-                customStyle={{
-                  display: 'flex',
-                  alignSelf: 'flex-start'
-                }}
+                customStyle={[
+                  {
+                    display: 'flex',
+                    alignSelf: 'flex-start',
+                    padding: '8px',
+                    borderRadius: '8px'
+                  },
+                  {
+                    '&:hover': {
+                      background: 'grey'
+                    }
+                  }
+                ]}
               >
                 <Text
                   customStyle={{
                     fontSize: '12px',
                     lineHeight: '140%',
                     fontWeight: '400',
-                    display: `${!windowDimensions?.isMobileView ? 'none' : ''}`
+                    display: `${!windowDimensions?.isMobileView ? 'none' : ''}`,
+                    cursor: 'pointer'
                   }}
                   onClick={() => setIsCollapseSynopsis(!isCollapseSynopsis)}
                 >
