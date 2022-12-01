@@ -34,7 +34,7 @@ const Banner = (props) => {
           style={{
             objectFit: 'fill',
             filter: 'brightness(0.4)',
-            maxHeight: '550px'
+            minHeight: '550px'
           }}
         />
         <BoxComponent
