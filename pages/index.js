@@ -144,7 +144,9 @@ export default function Home() {
                   }}
                 >
                   Show {(animeList?.pagination?.current_page - 1) * 12 + 1} -{' '}
-                  {animeList?.pagination?.current_page * 12} anime
+                  {animeList?.pagination?.current_page * 12 -
+                    (12 - animeList?.data?.length)}{' '}
+                  anime
                 </Text>
               </BoxComponent>
               <BoxComponent
