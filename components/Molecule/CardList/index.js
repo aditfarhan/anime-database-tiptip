@@ -4,7 +4,7 @@ import CardThumbnail from 'components/Molecule/CardThumbnail';
 import useWindowDimensions from 'utils/hooks/useWindowDimension';
 
 const CardList = (props) => {
-  const { data } = props;
+  const { data, maxDataCount = data?.length } = props;
   const windowDimensions = useWindowDimensions();
 
   return (
@@ -18,7 +18,7 @@ const CardList = (props) => {
         // padding: `0px 48px`,
       }}
     >
-      {data?.map((data, index) => (
+      {data?.slice(0, maxDataCount)?.map((data, index) => (
         <div key={`anime-${index}`}>
           <CardThumbnail data={data} />
         </div>

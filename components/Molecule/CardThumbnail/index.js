@@ -19,18 +19,21 @@ const CardThumbnail = (props) => {
 
   return (
     <BoxComponent
-      customStyle={[{
-        height: '200px',
-        cursor: 'pointer',
-        position: 'relative',
-        borderRadius: '4px',
-        transition: 'all .2s'
-      }, {
-        '&:hover': {
-          transform: 'scale(1.2)',
-          zIndex: '999'
+      customStyle={[
+        {
+          height: '200px',
+          cursor: 'pointer',
+          position: 'relative',
+          borderRadius: '4px',
+          transition: 'all .2s'
+        },
+        {
+          '&:hover': {
+            transform: 'scale(1.2)',
+            zIndex: '999'
+          }
         }
-      }]}
+      ]}
       onClick={() => handleOnClickAnime(data?.mal_id || data?.entry?.mal_id)}
     >
       <img

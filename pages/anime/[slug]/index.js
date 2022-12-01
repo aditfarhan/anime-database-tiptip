@@ -16,6 +16,7 @@ import Header from 'components/Molecule/Header';
 
 import ApiAnime from 'utils/models/anime';
 import useWindowDimensions from 'utils/hooks/useWindowDimension';
+import trimText from 'utils/functions/trimText';
 
 const DetailAnimePage = () => {
   const router = useRouter();
@@ -41,6 +42,7 @@ const DetailAnimePage = () => {
     loading: true,
     data: []
   });
+  const [isCollapseSynopsis, setIsCollapseSynopsis] = useState(true);
 
   const fetchAnimeDetail = async () => {
     await ApiAnime.getAnimeDetail(slug)
@@ -199,17 +201,44 @@ const DetailAnimePage = () => {
                   ? 'Remove from favourite'
                   : 'Add as Favourites'}
               </ButtonComponent>
-              <Text
+              <BoxComponent
                 customStyle={{
-                  fontSize: `${windowDimensions?.isMobileView ? 12 : 14}px`,
-                  textAlign: 'justify',
-                  lineHeight: '140%',
-                  fontWeight: '400',
-                  color: 'rgba(255, 255, 255, 0.6)'
+                  height: '100%',
+                  overflow: 'hidden'
                 }}
               >
-                {animeDetail?.data?.synopsis}
-              </Text>
+                <Text
+                  customStyle={{
+                    fontSize: `${windowDimensions?.isMobileView ? 12 : 14}px`,
+                    textAlign: 'justify',
+                    lineHeight: '140%',
+                    fontWeight: '400',
+                    color: 'rgba(255, 255, 255, 0.6)'
+                  }}
+                >
+                  {isCollapseSynopsis & windowDimensions?.isMobileView
+                    ? trimText(animeDetail?.data?.synopsis, 280)
+                    : animeDetail?.data?.synopsis}
+                </Text>
+              </BoxComponent>
+              <BoxComponent
+                customStyle={{
+                  display: 'flex',
+                  alignSelf: 'flex-start'
+                }}
+              >
+                <Text
+                  customStyle={{
+                    fontSize: '12px',
+                    lineHeight: '140%',
+                    fontWeight: '400',
+                    display: `${!windowDimensions?.isMobileView ? 'none' : ''}`
+                  }}
+                  onClick={() => setIsCollapseSynopsis(!isCollapseSynopsis)}
+                >
+                  Show {isCollapseSynopsis ? 'More' : 'Less'}
+                </Text>
+              </BoxComponent>
             </BoxComponent>
             <BoxComponent>
               <Image
@@ -285,7 +314,7 @@ const DetailAnimePage = () => {
             >
               Another Recommendation
             </Text>
-            <CardList data={animeRecommendation?.data} />
+            <CardList data={animeRecommendation?.data} maxDataCount={12} />
           </BoxComponent>
         </BoxComponent>
       )}

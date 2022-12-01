@@ -91,21 +91,23 @@ const PaginationMovieList = (props) => {
             onChange={handleChangePage}
           />
           <Text
-            customStyle={[{
-              fontSize: '14px',
-              letterSpacing: '-0.03em',
-              fontWeight: '400',
-              color: 'white',
-              display: `${currentPage ? 'flex' : 'none'}`,
-              cursor: 'pointer',
-              padding: '8px',
-              borderRadius: '8px'
-            },
-            {
-              '&:hover': {
-                background: 'grey'
+            customStyle={[
+              {
+                fontSize: '14px',
+                letterSpacing: '-0.03em',
+                fontWeight: '400',
+                color: 'white',
+                display: `${currentPage ? 'flex' : 'none'}`,
+                cursor: 'pointer',
+                padding: '8px',
+                borderRadius: '8px'
+              },
+              {
+                '&:hover': {
+                  background: 'grey'
+                }
               }
-            }]}
+            ]}
             onClick={handleClickButton}
           >
             Go &gt;

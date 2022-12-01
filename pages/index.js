@@ -103,11 +103,7 @@ export default function Home() {
       <HeadApp title="Home" />
       <main>
         <Header />
-        <BoxComponent
-          customStyle={{
-            marginTop: '48px'
-          }}
-        >
+        <BoxComponent>
           {animeList?.data?.length ? (
             <>
               <BoxComponent>

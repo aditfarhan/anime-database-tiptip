@@ -139,7 +139,7 @@ const Banner = (props) => {
     <BoxComponent
       customStyle={{
         display: 'flex',
-        padding: '52px 48px',
+        padding: '100px 48px 52px 48px',
         position: 'relative',
         overflow: 'hidden'
       }}

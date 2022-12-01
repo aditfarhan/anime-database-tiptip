@@ -5,10 +5,12 @@ import BoxComponent from 'components/Base/Box';
 import Text from 'components/Base/Text';
 
 import useWindowDimensions from 'utils/hooks/useWindowDimension';
+import useScrollPosition from '@/utils/hooks/useScrollPosition';
 
 const Header = () => {
   const router = useRouter();
   const windowDimensions = useWindowDimensions();
+  const scrollPosition = useScrollPosition();
 
   const renderDesktopViewHeader = () => (
     <>
@@ -107,7 +109,9 @@ const Header = () => {
     <BoxComponent
       customStyle={{
         width: '100%',
-        background: 'rgba(0, 0, 0, 0.5)',
+        background: `${
+          scrollPosition === 0 ? 'transparent' : 'rgba(0, 0, 0, 0.5)'
+        }`,
         padding: `12px ${!windowDimensions?.isMobileView ? 48 : 24}px`,
         display: 'flex',
         justifyContent: 'space-between',
@@ -115,7 +119,7 @@ const Header = () => {
         position: 'fixed',
         top: 0,
         zIndex: 999,
-        backdropFilter: 'blur(30px)'
+        backdropFilter: `${scrollPosition !== 0 ? 'blur(30px)' : ''}`
       }}
     >
       {windowDimensions?.isMobileView
