@@ -104,7 +104,7 @@ const DetailAnimePage = () => {
             display: 'flex',
             flexDirection: 'column',
             gap: '24px',
-            padding: '72px 48px 40px 48px',
+            padding: '72px 0 40px 0',
             position: 'relative',
             overflow: 'hidden'
           }}
@@ -113,7 +113,9 @@ const DetailAnimePage = () => {
             customStyle={{
               display: 'flex',
               justifyContent: 'space-between',
-              padding: '0 0 24px 0',
+              padding: `0 ${windowDimensions?.isMobileView ? 24 : 48}px 24px ${
+                windowDimensions?.isMobileView ? 24 : 48
+              }px`,
               borderBottom: '1px solid rgba(255, 255, 255, 0.1)',
               gap: `${windowDimensions?.isMobileView ? '12px' : '120px'}`,
               zIndex: 99,
@@ -225,13 +227,11 @@ const DetailAnimePage = () => {
                 customStyle={[
                   {
                     display: 'flex',
-                    alignSelf: 'flex-start',
-                    padding: '8px',
-                    borderRadius: '8px'
+                    alignSelf: 'flex-start'
                   },
                   {
                     '&:hover': {
-                      background: 'grey'
+                      transform: 'scale(1.075)'
                     }
                   }
                 ]}
@@ -267,7 +267,8 @@ const DetailAnimePage = () => {
               flexDirection: windowDimensions?.isMobileView ? 'column' : 'row',
               alignItems: windowDimensions?.isMobileView
                 ? 'flex-start'
-                : 'center'
+                : 'center',
+              padding: `0 ${windowDimensions?.isMobileView ? 24 : 48}px`
             }}
           >
             <Text
@@ -311,7 +312,9 @@ const DetailAnimePage = () => {
               display: 'flex',
               flexDirection: 'column',
               gap: `${windowDimensions?.isMobileView ? 16 : 32}px`,
-              zIndex: 99
+              zIndex: 99,
+              background: 'black',
+              padding: `40px ${windowDimensions?.isMobileView ? 24 : 48}px`
             }}
           >
             <Text
