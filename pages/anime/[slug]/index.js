@@ -86,6 +86,7 @@ const DetailAnimePage = () => {
 
   useEffect(() => {
     if (slug) {
+      setIsCollapseSynopsis(true);
       fetchAnimeDetail();
       fetchAnimeRecommendation();
     }
